@@ -3,26 +3,28 @@ package com.uv.practice_java.executor;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        Thread[] threads = new Thread[15];
-        Executor executorService = Executors.newFixedThreadPool(15);
+        Thread[] threads = new Thread[2];
+        ExecutorService executor = Executors.newFixedThreadPool(2);
 
-        for (int i = 0; i < 15; i++) {
-            int finalI = i;
-            executorService.execute(() -> {
-                System.out.println("Factorial of " + finalI + " is " + factorial(finalI));
+        for (int i = 0; i < 5; i++) {
+            int taskId = i;
+            executor.submit(() -> {
+                try {
+                    System.out.println("Started " + taskId);
+                    Thread.sleep(3000);
+                    System.out.println("Finished " + taskId);
+                } catch (InterruptedException e) {
+                    System.out.println("Interrupted " + taskId);
+                }
             });
         }
-        System.out.println("All tasks submitted. - it will print first");
-    }
-
-    public static long factorial(int n) {
-        long result = 1;
-        for (int i = 1; i <= n; i++) {
-            result *= i;
-        }
-        return result;
+        Thread.sleep(5000);
+//        executor.shutdown();
+        executor.shutdownNow();
+        System.out.println("Main thread finished");
     }
 }
