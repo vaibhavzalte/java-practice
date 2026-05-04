@@ -1,9 +1,6 @@
 package com.uv.practice_java.executor;
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
@@ -15,16 +12,16 @@ public class Main {
             executor.submit(() -> {
                 try {
                     System.out.println("Started " + taskId);
-                    Thread.sleep(3000);
+                    Thread.sleep(5000);
                     System.out.println("Finished " + taskId);
                 } catch (InterruptedException e) {
                     System.out.println("Interrupted " + taskId);
                 }
             });
         }
-        Thread.sleep(5000);
-//        executor.shutdown();
         executor.shutdownNow();
+//        executor.shutdown();
+        executor.awaitTermination(3, TimeUnit.SECONDS);
         System.out.println("Main thread finished");
     }
 }
