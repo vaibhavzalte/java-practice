@@ -1,27 +1,26 @@
 package com.uv.practice_java.executor;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.*;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
-        Thread[] threads = new Thread[2];
-        ExecutorService executor = Executors.newFixedThreadPool(2);
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+            ExecutorService executorService = Executors.newFixedThreadPool(2);
+        List<Callable<String>> tasks = new ArrayList<>();
 
         for (int i = 0; i < 5; i++) {
             int taskId = i;
-            executor.submit(() -> {
-                try {
-                    System.out.println("Started " + taskId);
-                    Thread.sleep(5000);
-                    System.out.println("Finished " + taskId);
-                } catch (InterruptedException e) {
-                    System.out.println("Interrupted " + taskId);
-                }
-            });
+           tasks.add(()->{
+               Thread.sleep(2000);
+               System.out.println("Task Completed: " + taskId);
+               return "Task " + taskId + " completed";
+           });
         }
-        executor.shutdownNow();
-//        executor.shutdown();
-        executor.awaitTermination(3, TimeUnit.SECONDS);
+        List<Future<String>> futures = executorService.invokeAll(tasks,3, TimeUnit.SECONDS);
+        System.out.println("futures"+futures.get(0).isCancelled());
+        System.out.println("futures"+futures.get(4).isCancelled());
+         executorService.shutdown();
         System.out.println("Main thread finished");
     }
 }
