@@ -1,16 +1,43 @@
 package com.uv.practice_java.executor;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.*;
 
 public class Main {
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
-        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(3);
-        scheduler.scheduleAtFixedRate(() -> System.out.println("Task 1 executed every 3 seconds"), 0, 3, TimeUnit.SECONDS);
-        scheduler.schedule(()-> scheduler.shutdown(), 20, TimeUnit.SECONDS);
-        scheduler.scheduleWithFixedDelay(() -> System.out.println("Task 2 executed with fixed delay of 5 seconds"), 0, 5, TimeUnit.SECONDS);
-        System.out.println("Main thread continues...");
+    public static void main(String[] args) throws InterruptedException {
+//       CountDownLatch example
+        int numberOfThreads = 3;
+        CountDownLatch latch = new CountDownLatch(numberOfThreads);
+        ExecutorService executorService = Executors.newFixedThreadPool(numberOfThreads);
+
+        Future<String> future1 = executorService.submit(new DependantService(latch));
+        Future<String> future2 = executorService.submit(new DependantService(latch));
+        Future<String> future3 = executorService.submit(new DependantService(latch));
+
+
+//        executorService.awaitTermination(3, TimeUnit.SECONDS);
+        latch.await();
+//        latch.await(1, TimeUnit.SECONDS);
+        System.out.println("Main Thread");
+        executorService.shutdown();
     }
 
+}
+class DependantService implements Callable<String>{
+    final CountDownLatch latch;
+    public DependantService(CountDownLatch latch) {
+        System.out.println("latch value in constructor: " + latch.getCount());
+        this.latch = latch;
+    }
+    public String call() {
+        try {
+            Thread.sleep(2000);
+            System.out.println("DependantService is running...");
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        finally {
+            latch.countDown();
+        }
+        return "DependantService Result";
+    }
 }
