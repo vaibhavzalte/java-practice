@@ -1,6 +1,8 @@
 package com.uv.practice_java.executor;
 
-import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class ReentrantLockPrg {
     public static void main(String[] args) {
@@ -23,13 +25,29 @@ class Bank {
     Bank(){
         bankBalance=100;
     }
-    public synchronized void withdraw(int amount){
+
+    Lock lock = new ReentrantLock();
+    public void withdraw(int amount){
         System.out.println(Thread.currentThread().getName()+" is going to withdraw amount:- "+amount);
         try {
-            if(bankBalance>0){
-                Thread.sleep(3000);
-                bankBalance-=amount;
-                System.out.println(Thread.currentThread().getName() + " withdraw amount:- "+amount);
+            if (lock.tryLock(1, TimeUnit.SECONDS)) {
+                System.out.println(Thread.currentThread().getName() + " got the lock");
+                if (bankBalance >= amount) {
+                    try {
+                        Thread.sleep(5000);
+                        bankBalance -= amount;
+                        System.out.println(Thread.currentThread().getName() + " withdraw amount:- " + amount);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    } finally {
+                        lock.unlock();
+                    }
+                }else {
+                    System.out.println(Thread.currentThread().getName()+"insufficient balance");
+                }
+            }
+            else{
+                System.out.println(Thread.currentThread().getName() + " didn't get lock");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
