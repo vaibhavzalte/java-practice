@@ -21,7 +21,7 @@ public class ReadWriteLockExample {
     };
     Runnable writerTask = resource::increment;
     Thread reader1 = new Thread(readerTask,"reader1");
-    Thread reader2 = new Thread(readerTask,"reader2");
+    Thread reader2 = new Thread(readerTask ,"reader2");
     Thread reader3 = new Thread(readerTask,"reader3");
     Thread writer = new Thread(writerTask,"writer");
     writer.start();
