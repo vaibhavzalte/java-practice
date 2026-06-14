@@ -3,10 +3,13 @@ package com.uv.practice_java.multithreading;
 import lombok.SneakyThrows;
 
 public class Practice1CreatingThread extends Thread{
-    @SneakyThrows
     @Override
     public void run() {
-        Thread.sleep(2000);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         System.out.println("Thread is running: " + Thread.currentThread().getName());
     }
 
