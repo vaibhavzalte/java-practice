@@ -67,8 +67,8 @@ public class StreamsEx1 {
                 .filter(t -> t.getDate().isAfter(LocalDate.now().minusDays(30)))
                 .collect(
                         Collectors.groupingBy(
-                                Transction::getCategory,
-                                Collectors.summingInt(Transction::getAmount)
+                                t->t.getCategory(),
+                                Collectors.summingInt(t->t.getAmount())
                         )
                 );
 
