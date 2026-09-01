@@ -1,0 +1,22 @@
+## 📚 Topics
+
+- [x] 1)Java Core
+- [x] 2)Collections
+- [x] 3)Java 8+
+- [x] 4)Multithreading
+- [x] 5)Spring Boot
+- [x] 6)Spring MVC
+- [ ] 7)JPA / Hibernate
+- [x] 8)SQL / PostgreSQL
+- [x] 9)REST APIs
+- [ ] 10)Spring Security + JWT
+- [ ] 11)Microservices
+- [X] 12)Maven + Git + Docker
+- [ ] 13)Design Patterns + SOLID
+- [ ] 14)JVM & Garbage Collection
+- [ ] 15)System Design (Basic)
+- [ ] 16)Testing (JUnit + Mockito)
+- [ ] 17)CI/CD + Jenkins
+- [ ] 18)Project Discussion
+- [x] 19)DSA
+- [ ] 20)HR Questions
