@@ -3,7 +3,7 @@ package com.uv.practice_java.patterns;
 
 public class PatternsSolution {
     public static void main(String[] args) {
-        pattern5(5);
+        pattern7(5);
     }
 
     //     Input: n = 5
@@ -102,6 +102,87 @@ public class PatternsSolution {
                 System.out.print(i);
             }
             for (int i = r - 1; i >= 1; i--) {
+                System.out.print(i);
+            }
+            System.out.println();
+        }
+    }
+
+    /*
+    ## 6. Reverse Palindrome Number Pyramid
+    Input: n = 5
+    Output:
+    ```text
+    123454321
+    -1234321
+    --12321
+    ---121
+    ----1
+    ```
+    */
+    public static void pattern6(int n) {
+        for (int r = 1; r <= n; r++) {
+            // spaces
+            for (int i = r - 1; i >= 1; i--) {
+                System.out.print(" ");
+            }
+            // 1 to n-r+1
+            for (int i = 1; i <= n - r + 1; i++) {
+                System.out.print(i);
+            }
+            // n-r to 1 printing
+            for (int i = n - r; i >= 1; i--) {
+                System.out.print(i);
+            }
+            System.out.println();
+        }
+    }
+
+/*
+## 7. Diamond Number Pattern
+Input: n = 5
+Output:
+```text
+----1
+---212
+--32123
+-4321234
+543212345
+-4321234
+--32123
+---212
+----1
+```
+*/
+    public static void pattern7(int n){
+        // Upper half
+        for (int r = 1; r <= n; r++) {
+            //space n-1 to 0
+            for (int i = 1; i <= n-r ; i++) {
+                System.out.print(" ");
+            }
+            // r to 1
+            for (int i = r; i >=1 ; i--) {
+                System.out.print(i);
+            }
+
+            // 1 to r-1
+            for (int i = 2; i <= r ; i++) {
+                System.out.print(i+1);
+            }
+            System.out.println();
+        }
+        for (int r = 1; r < n ; r++) {
+            // space 1 to r
+            for (int i = 1; i <= r; i++) {
+                System.out.print(" ");
+            }
+            // n-r to 1
+            for (int i = n-r; i >=1 ; i--) {
+                System.out.print(i);
+            }
+            // 2 to r
+            for (int i = 2; i <=n-r ; i++) {
                 System.out.print(i);
             }
             System.out.println();
