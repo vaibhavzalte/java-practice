@@ -244,7 +244,56 @@ Output:
         }
     }
 
-    public static void pattern(int n) {
+    /*
+## 9. Number Diamond With Increasing Sequence
+Input: n = 5
+Output:
+----1
+---123
+--12345
+-1234567
+123456789
+-1234567
+--12345
+---123
+    1
+     */
+    public static void pattern9(int n) {
+        for (int r = 1; r <= n; r++) {
+            // spaces
+            for (int i = 1; i <= n - r; i++) {
+                System.out.print(" ");
+            }
+            int k = 1;
+            for (int i = 1; i <= r; i++) {
+                System.out.print(i);
+                k++;
+            }
+            // print r-1 elements
+            for (int i = 1; i <= r - 1; i++) {
+                System.out.print(k++);
+            }
+            System.out.println();
+        }
+        for (int r = 1; r < n; r++) {
+            // spaces
+            for (int i = 1; i <= r; i++) {
+                System.out.print(" ");
+            }
+            int k = 1;
+            for (int i = 1; i <= n - r; i++) {
+                System.out.print(i);
+                k++;
+            }
+            // print r-1 elements
+            for (int i = 1; i < n - r; i++) {
+                System.out.print(k++);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void pattern(int n){
 
     }
 }
