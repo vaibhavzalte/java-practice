@@ -3,7 +3,7 @@ package com.uv.practice_java.patterns;
 
 public class PatternsSolution {
     public static void main(String[] args) {
-        pattern7(5);
+        pattern(5);
     }
 
     //     Input: n = 5
@@ -187,5 +187,64 @@ Output:
             }
             System.out.println();
         }
+    }
+
+    /*
+    ## 8. Hollow Diamond Number Pattern
+        Input: n = 5
+        Output:
+        1
+       2 2
+      3   3
+     4     4
+    5       5
+     4     4
+      3   3
+       2 2
+        1
+     */
+    public static void pattern8(int n) {
+        for (int r = 1; r <= n; r++) {
+            // spaces
+            for (int i = n - r; i >= 1; i--) {
+                System.out.print(" ");
+            }
+            // r to 1 print r only other wise space
+            for (int i = r; i >= 1; i--) {
+                if (r == i)
+                    System.out.print(r);
+                else
+                    System.out.print(" ");
+            }
+            // print 2 to r and print only r other wise " "
+            for (int i = 2; i <= r; i++) {
+                if (r == i) System.out.print(r);
+                else System.out.print(" ");
+            }
+            System.out.println();
+        }
+        for (int r = 1; r < n; r++) {
+            // spaces
+            for (int i = 1; i <= r; i++) {
+                System.out.print(" ");
+            }
+            // n-r to 1 print (n-r) only other wise space
+            for (int i = n - r; i >= 1; i--) {
+                if (n - r == i)
+                    System.out.print(i);
+                else
+                    System.out.print(" ");
+            }
+            // print 2 to r and print only r other wise " "
+            for (int i = 2; i <= n - r; i++) {
+                if (n - r == i) System.out.print(i);
+                else System.out.print(" ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void pattern(int n) {
+
     }
 }
