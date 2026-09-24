@@ -293,7 +293,60 @@ Output:
         }
     }
 
-    public static void pattern(int n){
+    /*
+    10. Number Pyramid
+        Input: n = 5
+        Output:
+        1
+       222
+      33333
+     4444444
+    555555555
+     */
+    public static void pattern10(int n) {
+        for (int r = 1; r <= n; r++) {
+            // spaces
+            for (int i = 1; i <= n - r; i++) {
+                System.out.print(" ");
+            }
+            // print 2 rows time + r-1 times
+            for (int i = 1; i <= r; i++) {
+                System.out.print(r);
+            }
+            for (int i = 1; i <= r - 1; i++) {
+                System.out.print(r);
+            }
+            System.out.println();
+        }
+    }
+
+    /*
+    ## 11. Reverse Number Pyramid
+    Input: n = 5
+    Output:
+    555555555
+    -4444444
+    --33333
+    ---222
+    ----1
+     */
+    public static void pattern11(int n) {
+        for (int r = n; r >= 1; r--) {
+            // spaces (r-1)
+            for (int i = r; i < n; i++) {
+                System.out.print(" ");
+            }
+            for (int i = r; i >= 1; i--) {
+                System.out.print(r);
+            }
+            for (int i = r; i > 1; i--) {
+                System.out.print(r);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void pattern(int n) {
 
     }
 }
