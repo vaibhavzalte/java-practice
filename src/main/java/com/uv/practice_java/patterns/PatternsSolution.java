@@ -138,51 +138,51 @@ public class PatternsSolution {
         }
     }
 
-/*
-## 7. Diamond Number Pattern
-Input: n = 5
-Output:
-```text
-----1
----212
---32123
--4321234
-543212345
--4321234
---32123
----212
-----1
-```
-*/
-    public static void pattern7(int n){
+    /*
+    ## 7. Diamond Number Pattern
+    Input: n = 5
+    Output:
+    ```text
+    ----1
+    ---212
+    --32123
+    -4321234
+    543212345
+    -4321234
+    --32123
+    ---212
+    ----1
+    ```
+    */
+    public static void pattern7(int n) {
         // Upper half
         for (int r = 1; r <= n; r++) {
             //space n-1 to 0
-            for (int i = 1; i <= n-r ; i++) {
+            for (int i = 1; i <= n - r; i++) {
                 System.out.print(" ");
             }
             // r to 1
-            for (int i = r; i >=1 ; i--) {
+            for (int i = r; i >= 1; i--) {
                 System.out.print(i);
             }
 
             // 1 to r-1
-            for (int i = 2; i <= r ; i++) {
-                System.out.print(i+1);
+            for (int i = 2; i <= r; i++) {
+                System.out.print(i + 1);
             }
             System.out.println();
         }
-        for (int r = 1; r < n ; r++) {
+        for (int r = 1; r < n; r++) {
             // space 1 to r
             for (int i = 1; i <= r; i++) {
                 System.out.print(" ");
             }
             // n-r to 1
-            for (int i = n-r; i >=1 ; i--) {
+            for (int i = n - r; i >= 1; i--) {
                 System.out.print(i);
             }
             // 2 to r
-            for (int i = 2; i <=n-r ; i++) {
+            for (int i = 2; i <= n - r; i++) {
                 System.out.print(i);
             }
             System.out.println();
@@ -341,6 +341,52 @@ Output:
             }
             for (int i = r; i > 1; i--) {
                 System.out.print(r);
+            }
+            System.out.println();
+        }
+    }
+
+    /*
+    12. Alternating Number Pyramid
+    Input: n = 5
+    Output:
+    ```text
+        1
+       222
+      33333
+     4444444
+    555555555
+    ```
+    */
+    public static void pattern12(int n) {
+        pattern10(n);
+    }
+
+    /*
+     ## 13. Floyd's Triangle
+    Input: n = 5
+    Output:
+    ```text
+    1
+    2 3
+    4 5 6
+    7 8 9 10
+    11 12 13 14 15
+    ```
+    */
+    public static void pattern13(int n) {
+        int c = 1;
+        for (int r = 1; r <= 5; r++) {
+            // r to r times print
+            int k = r;
+            while (k >= 1) {
+
+                if (k == 1)
+                    System.out.print(c++);
+                else
+                    System.out.print(c++ + " ");
+
+                k--;
             }
             System.out.println();
         }
