@@ -376,7 +376,7 @@ Output:
     */
     public static void pattern13(int n) {
         int c = 1;
-        for (int r = 1; r <= 5; r++) {
+        for (int r = 1; r <= n; r++) {
             // r to r times print
             int k = r;
             while (k >= 1) {
@@ -392,7 +392,33 @@ Output:
         }
     }
 
-    public static void pattern(int n) {
+    /*
+    ## 14. Reverse Floyd's Triangle #IMP
+    Input: n = 5
+    Output:
 
+    ```text
+    1 2 3 4 5
+    6 7 8 9
+    10 11 12
+    13 14
+    15
+     */
+    public static void pattern(int n) {
+        int c = 1;
+        for (int r = n; r >=1; r--) {
+            // r to r times print
+            int k = r;
+            while (k >= 1) {
+
+                if (k == 1)
+                    System.out.print(c++);
+                else
+                    System.out.print(c++ + " ");
+
+                k--;
+            }
+            System.out.println();
+        }
     }
 }
