@@ -478,6 +478,61 @@ Output:
         }
     }
 
+    /*
+    ## 16. Number Hourglass
+    Input: n = 5
+    Output:
+    ```text
+    12345
+    -1234
+    --123
+    ---12
+    ----1
+    +++12
+    ++123
+    +1234
+    12345
+    ```
+     */
+    public static void pattern16(int n) {
+        for (int r = 1; r <= n; r++) {
+            // spaces r-1
+            for (int i = 1; i < r; i++) {
+                System.out.print(" ");
+            }
+            // 1 to n-r+1 print
+            for (int i = 1; i <= (n - r + 1); i++) {
+                System.out.print(i);
+            }
+            System.out.println();
+        }
+        for (int r = 2; r <= n; r++) {
+            // spaces n-r
+            for (int i = 1; i <= n - r; i++) {
+                System.out.print(" ");
+            }
+            // 1 to r print
+            for (int i = 1; i <= r; i++) {
+                System.out.print(i);
+            }
+            System.out.println();
+        }
+    }
+
+    /*
+    ## 17. Concentric Number Square
+    Input: n = 4
+    Output:
+    ```text
+    4444444
+    4333334
+    4322234
+    4321234
+    4322234
+    4333334
+    4444444
+     */
     public static void pattern(int n) {
+
     }
 }
