@@ -404,9 +404,9 @@ Output:
     13 14
     15
      */
-    public static void pattern(int n) {
+    public static void pattern14(int n) {
         int c = 1;
-        for (int r = n; r >=1; r--) {
+        for (int r = n; r >= 1; r--) {
             // r to r times print
             int k = r;
             while (k >= 1) {
@@ -420,5 +420,64 @@ Output:
             }
             System.out.println();
         }
+    }
+
+    /*
+    ## 15. Number Butterfly Pattern
+    Input: n = 4
+    Output:
+    ```text
+    1---+++1
+    12--++21
+    123-+321
+    12344321
+    12344321
+    123-+321
+    12--++21
+    1---+++1
+    ```
+    */
+    public static void pattern15(int n) {
+        for (int r = 1; r <= n; r++) {
+            // 1 to r print
+            for (int i = 1; i <= r; i++) {
+                System.out.print(i);
+            }
+            // n-r spaces
+            for (int i = r; i < n; i++) {
+                System.out.print(" ");
+            }
+            // n-r spaces
+            for (int i = r; i < n; i++) {
+                System.out.print(" ");
+            }
+            // r to 1 print
+            for (int i = r; i >= 1; i--) {
+                System.out.print(i);
+            }
+            System.out.println();
+        }
+        for (int r = 1; r <= n; r++) {
+            // 1 to n-r+1 print
+            for (int i = 1; i <= (n - r + 1); i++) {
+                System.out.print(i);
+            }
+            // r-1 spaces
+            for (int i = 1; i < r; i++) {
+                System.out.print(" ");
+            }
+            // r-1 spaces
+            for (int i = 1; i < r; i++) {
+                System.out.print(" ");
+            }
+            // (n-r+1) to 1 print
+            for (int i = (n - r + 1); i >= 1; i--) {
+                System.out.print(i);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void pattern(int n) {
     }
 }
