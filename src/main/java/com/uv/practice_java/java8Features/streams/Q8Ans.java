@@ -1,0 +1,13 @@
+package com.uv.practice_java.java8Features.streams;
+
+import java.util.List;
+
+public class Q8Ans {
+    public static void main(String[] args) {
+        List<Integer> list = List.of(1, 2, 4, 3);
+        Integer sum = list.stream()
+                .filter(n -> n % 2 == 0)
+                .reduce(0, (a, b) -> a + b);
+        System.out.println(sum);
+    }
+}
