@@ -12,3 +12,5 @@
 #  lecture -2
 # 11. From all distinct numbers from a list (remove duplicates) and then sort them in descending order?
 # 12. Find the average of all numbers in list?
+# 13. Sort a list of integers in ascending and descending order using streams?
+# 14. Count how many strings starts with a specific letter like 'A'
