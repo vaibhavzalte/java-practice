@@ -8,3 +8,6 @@
 # 8. find the sum of even numbers in list?
 # 9. find the maximum number in list?
 # 10. sum of squares of even numbers in list
+
+#  lecture -2
+# 11. From all distinct numbers from a list (remove duplicates) and then sort them in descending order?
