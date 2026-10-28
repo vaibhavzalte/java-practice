@@ -14,3 +14,4 @@
 # 12. Find the average of all numbers in list?
 # 13. Sort a list of integers in ascending and descending order using streams?
 # 14. Count how many strings starts with a specific letter like 'A'
+# 15. Join all strings from a list with a delimiter like ','
