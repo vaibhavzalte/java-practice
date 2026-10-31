@@ -23,3 +23,4 @@
 
 # level - intermediate
 # 21. Sort a list of Employee by salary
+# 22. Calculate the average age of a list of Person objects using Java streams
