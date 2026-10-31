@@ -9,7 +9,7 @@
 # 9. find the maximum number in list?
 # 10. sum of squares of even numbers in list
 
-#  lecture -2
+#  level - basic
 # 11. From all distinct numbers from a list (remove duplicates) and then sort them in descending order?
 # 12. Find the average of all numbers in list?
 # 13. Sort a list of integers in ascending and descending order using streams?
@@ -20,3 +20,6 @@
 # 18. Flatten a list of lists into a single list using streams?
 # 19. Find the first non-empty string from a list of strings?
 # 20. Find the second highest number from a list of integers using streams?
+
+# level - intermediate
+# 21. Sort a list of Employee by salary
