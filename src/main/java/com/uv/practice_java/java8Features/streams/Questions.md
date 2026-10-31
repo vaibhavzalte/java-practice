@@ -18,3 +18,5 @@
 # 16. Check if all numbers in a list are positive?
 # 17. Check if any number in a list is divisible by 5?
 # 18. Flatten a list of lists into a single list using streams?
+# 19. Find the first non-empty string from a list of strings?
+# 20. Find the second highest number from a list of integers using streams?
