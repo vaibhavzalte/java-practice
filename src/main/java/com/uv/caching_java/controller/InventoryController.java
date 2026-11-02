@@ -52,13 +52,4 @@ public class InventoryController {
         inventoryService.deleteInventory(id);
     }
 
-    @ExceptionHandler(InventoryNotFound.class)
-    public ErrorResponse inventoryNotFound(){
-        return ErrorResponse.builder()
-                .timestamp(LocalDateTime.now())
-                .status(HttpStatus.NOT_FOUND.value())
-                .message("try other inventory id")
-                .error("inventory not found")
-                .build();
-    }
 }
