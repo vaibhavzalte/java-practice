@@ -1,9 +1,15 @@
 package com.uv.caching_java.controller;
 
 import com.uv.caching_java.entity.Inventory;
+import com.uv.caching_java.exception.InventoryNotFound;
+import com.uv.caching_java.response.ErrorResponse;
 import com.uv.caching_java.service.InventoryService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -46,4 +52,13 @@ public class InventoryController {
         inventoryService.deleteInventory(id);
     }
 
+    @ExceptionHandler(InventoryNotFound.class)
+    public ErrorResponse inventoryNotFound(){
+        return ErrorResponse.builder()
+                .timestamp(LocalDateTime.now())
+                .status(HttpStatus.NOT_FOUND.value())
+                .message("try other inventory id")
+                .error("inventory not found")
+                .build();
+    }
 }

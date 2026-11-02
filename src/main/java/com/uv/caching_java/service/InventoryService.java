@@ -1,6 +1,7 @@
 package com.uv.caching_java.service;
 
 import com.uv.caching_java.entity.Inventory;
+import com.uv.caching_java.exception.InventoryNotFound;
 import com.uv.caching_java.repository.InventoryRepository;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
@@ -39,7 +40,7 @@ public class InventoryService {
     @Cacheable(value = "inventory", key = "#id")
     public Inventory getInventoryById(Integer id) {
         return inventoryRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Inventory not found with id: " + id));
+                .orElseThrow(() -> new InventoryNotFound("Inventory not found with id: " + id));
     }
 
     @CacheEvict(value = "inventory", key = "#id")
