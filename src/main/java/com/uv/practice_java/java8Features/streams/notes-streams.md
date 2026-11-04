@@ -27,3 +27,4 @@
 # Collectors
 - `Collectors.toList()`: Collects the elements of the stream into a List.
 - `Collectors.joining()`: Joins the elements of the stream into a single String.
+- `Collectors.groupingBy` : groups the elements on the base of condition
