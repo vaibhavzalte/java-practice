@@ -27,3 +27,4 @@
 # 23. Partition numbers in even and odd list
 # 24. Group a list of strings by their length using Java streams
 # 25. Count the occurrences of each element in a list using Java streams
+# 26. Group a Employees by their department and calculate the average salary for each department using Java streams

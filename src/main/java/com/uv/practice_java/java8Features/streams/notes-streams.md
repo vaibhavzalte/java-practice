@@ -29,3 +29,6 @@
 - `Collectors.joining()`: Joins the elements of the stream into a single String.
 - `Collectors.groupingBy()`: Groups the elements of the stream by a classifier function.
 - `Collectors.partitioningBy()`: Partitions the elements of the stream into two groups based on a predicate.
+
+# Function
+- `Function.identity()`: Returns a function that returns its input argument.
