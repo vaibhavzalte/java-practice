@@ -25,3 +25,4 @@
 # 21. Sort a list of Employee by salary
 # 22. Calculate the average age of a list of Person objects using Java streams
 # 23. Partition numbers in even and odd list
+# 24. Group a list of strings by their length using Java streams
