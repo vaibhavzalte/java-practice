@@ -1,7 +1,6 @@
 //  Group a list of strings by their length using Java streams
 package com.uv.practice_java.java8Features.streams;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
