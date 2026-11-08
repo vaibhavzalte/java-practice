@@ -31,3 +31,4 @@
 
 # level - intermediate B
 # 27. Find the highest-paid employee in each department
+# 28. Find all departments with more than 2 employees 
