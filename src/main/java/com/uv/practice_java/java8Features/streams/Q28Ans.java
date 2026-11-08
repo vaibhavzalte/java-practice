@@ -19,9 +19,9 @@ public class Q28Ans {
                 new Emp("sai", 8000, "Testing")
         );
 
-        Map<String, Long> map = employees.stream()
-                .collect(Collectors.groupingBy(Emp::getDepartment, Collectors.counting()));
-        List<String> list = map.entrySet().stream()
+        List<String> list = employees.stream()
+                .collect(Collectors.groupingBy(Emp::getDepartment, Collectors.counting()))
+                .entrySet().stream()
                 .filter(k -> k.getValue() > 2)
                 .map(Map.Entry::getKey)
                 .toList();
