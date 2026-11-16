@@ -20,7 +20,7 @@ public class ApplicantService {
     }
 
     public List<Applicant> getAllApplicants(){
-        return applicantRepository.findAll();
+        return applicantRepository.findByStatus("ACTIVE");
     }
 
     public Page<Applicant> getApplicants(Pageable pageable){
