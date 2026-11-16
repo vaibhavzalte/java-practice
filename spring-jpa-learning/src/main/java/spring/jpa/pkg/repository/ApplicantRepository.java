@@ -10,4 +10,5 @@ import java.util.List;
 public interface ApplicantRepository extends JpaRepository<Applicant,Long> {
     List<Applicant> findByStatus(String status);
     List<Applicant> findByStatusOrderByNameAsc(String status);
+    List<Applicant> findByStatusOrderByNameDesc(String status);
 }

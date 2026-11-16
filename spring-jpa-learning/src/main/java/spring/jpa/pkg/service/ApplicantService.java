@@ -20,7 +20,7 @@ public class ApplicantService {
     }
 
     public List<Applicant> getAllApplicants(String status){
-        return applicantRepository.findByStatusOrderByNameAsc(status);
+        return applicantRepository.findByStatusOrderByNameDesc(status);
     }
 
     public Page<Applicant> getApplicants(Pageable pageable){
