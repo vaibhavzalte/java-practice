@@ -26,4 +26,8 @@ public class ApplicantService {
     public Page<Applicant> getApplicants(Pageable pageable){
         return applicantRepository.findAll(pageable);
     }
+
+    public List<Applicant> getByPartialName(String partialName) {
+        return applicantRepository.findByPartialName(partialName);
+    }
 }

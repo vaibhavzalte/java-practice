@@ -23,6 +23,11 @@ public class ApplicantController {
         return applicantService.getAllApplicants(status);
     }
 
+    @GetMapping("/get-by-partial-name/{partialName}")
+    public List<Applicant> getByPartialName(@PathVariable String partialName){
+        return applicantService.getByPartialName(partialName);
+    }
+
     @PostMapping("/create")
     public Applicant create(@RequestBody Applicant applicant){
         return applicantService.createApplicant(applicant);
