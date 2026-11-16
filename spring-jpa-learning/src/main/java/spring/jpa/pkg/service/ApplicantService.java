@@ -19,8 +19,8 @@ public class ApplicantService {
         return applicantRepository.save(applicant);
     }
 
-    public List<Applicant> getAllApplicants(){
-        return applicantRepository.findByStatus("ACTIVE");
+    public List<Applicant> getAllApplicants(String status){
+        return applicantRepository.findByStatusOrderByNameAsc(status);
     }
 
     public Page<Applicant> getApplicants(Pageable pageable){

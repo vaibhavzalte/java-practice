@@ -16,8 +16,11 @@ public class ApplicantController {
     private ApplicantService applicantService;
 
     @GetMapping("/all")
-    public List<Applicant> getAll(){
-        return applicantService.getAllApplicants();
+    public List<Applicant> getAll(@RequestParam(required=false) String status){
+        if (status == null) {
+            status = "ACTIVE";
+        }
+        return applicantService.getAllApplicants(status);
     }
 
     @PostMapping("/create")
