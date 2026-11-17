@@ -1,5 +1,6 @@
 package spring.jpa.pkg.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -16,5 +17,6 @@ public class Applicant {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "passport_fk")
-    private Passport passport;
+    @JsonManagedReference
+    private Passport passportDetails;
 }

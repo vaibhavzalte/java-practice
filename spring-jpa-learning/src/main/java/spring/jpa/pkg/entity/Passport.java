@@ -1,5 +1,6 @@
 package spring.jpa.pkg.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -14,4 +15,8 @@ public class Passport {
     private String passportNumber;
 
     private String country;
+
+    @OneToOne(mappedBy = "passportDetails")
+    @JsonBackReference
+    private Applicant applicant;
 }
